@@ -29,7 +29,7 @@
             transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
         .header-scrolled {
-            background-color: #111827; /* Tailwind gray-900 for scrolled header (darker than body) */
+            background-color: #111827; 
             position: fixed; 
             width: 100%;
             top: 0;
@@ -44,7 +44,7 @@
         }
         .header-transparent .nav-link:hover,
         .header-scrolled .nav-link:hover {
-            color: #fbbf24; /* Tailwind amber-400 for Hover */
+            color: #fbbf24; 
         }
         .logo-image {
             height: 50px; 
@@ -74,7 +74,7 @@
         }
         .service-card {
             transition: all 0.3s ease; 
-            background-color: #374151; /* Tailwind gray-700 (lighter than section bg) */
+            background-color: #374151; 
             color: #d1d5db; 
         }
         .service-card:hover {
@@ -86,7 +86,7 @@
         }
         .project-card {
              transition: all 0.3s ease; 
-             background-color: #374151; /* Tailwind gray-700 */
+             background-color: #374151; 
         }
         .project-card:hover {
             box-shadow: 0 10px 20px rgba(251, 191, 36, 0.2);
@@ -104,16 +104,20 @@
             transform: scale(1.05);
         }
         
+        /* Mobile Menu Styling - Using display none/flex */
         #mobile-menu {
-            transition: transform 0.3s ease-in-out;
-            background-color: rgba(17, 24, 39, 0.97); /* gray-900 with higher opacity */
+            background-color: rgba(17, 24, 39, 0.98); /* gray-900 with higher opacity */
+            /* transition: opacity 0.3s ease-in-out; Removed for display change */
         }
         .menu-open {
-            transform: translateX(0%);
+            display: flex !important; /* Override Tailwind's hidden if md:hidden is still active */
+            opacity: 1;
         }
         .menu-closed {
-            transform: translateX(100%); 
+            display: none !important;
+            opacity: 0;
         }
+
         .section-title {
             color: white;
         }
@@ -129,7 +133,7 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #4b5563; /* Gray-600 */
+            background: #4b5563; 
         }
         ::-webkit-scrollbar-thumb {
             background: #fbbf24; 
@@ -214,7 +218,7 @@
             color: #374151; 
         }
         .footer-dark {
-            background-color: #111827; /* Tailwind gray-900 */
+            background-color: #111827; 
             color: #d1d5db; 
         }
         .footer-dark a {
@@ -227,7 +231,7 @@
             color: white;
         }
         .bg-dark-section {
-             background-color: #1f2937; /* Tailwind gray-800 */
+             background-color: #1f2937; 
         }
     </style>
 </head>
@@ -250,16 +254,16 @@
                     <a href="#contact" class="nav-link px-3 py-2 rounded-md text-sm font-medium transition-colors">Kontakt</a>
                 </nav>
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="focus:outline-none p-2"> {/* Added padding for easier tap */}
-                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"> {/* Increased size */}
+                    <button id="mobile-menu-button" class="focus:outline-none p-2"> 
+                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"> 
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                         </svg>
                     </button>
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="md:hidden fixed inset-0 menu-closed transform z-[55] flex flex-col items-center justify-center text-center" style="background-color: rgba(17, 24, 39, 0.98);">
-            <button id="mobile-menu-close-button" class="absolute top-5 right-5 text-white hover:text-amber-400 focus:outline-none p-2 z-[56]">
+        <div id="mobile-menu" class="md:hidden fixed inset-0 menu-closed z-[55] flex flex-col items-center justify-center text-center">
+            <button id="mobile-menu-close-button" class="absolute top-5 right-5 text-white hover:text-amber-400 focus:outline-none p-3 z-[56]"> {/* Increased padding */}
                 <svg class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
