@@ -106,7 +106,7 @@
         
         #mobile-menu {
             transition: transform 0.3s ease-in-out;
-            background-color: rgba(17, 24, 39, 0.95); /* gray-900 with opacity */
+            background-color: rgba(17, 24, 39, 0.97); /* gray-900 with higher opacity */
         }
         .menu-open {
             transform: translateX(0%);
@@ -250,28 +250,26 @@
                     <a href="#contact" class="nav-link px-3 py-2 rounded-md text-sm font-medium transition-colors">Kontakt</a>
                 </nav>
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <button id="mobile-menu-button" class="focus:outline-none p-2"> {/* Added padding for easier tap */}
+                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"> {/* Increased size */}
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                         </svg>
                     </button>
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="md:hidden fixed top-0 right-0 h-full w-64 p-4 menu-closed transform z-40 shadow-xl">
-            <div class="flex justify-end mb-8">
-                 <button id="mobile-menu-close-button" class="text-white hover:text-amber-400 focus:outline-none">
-                    <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-            <nav class="flex flex-col space-y-5">
-                <a href="#home" class="text-white hover:text-amber-400 block px-3 py-2 rounded-md text-lg font-medium transition-colors mobile-menu-link">Startseite</a>
-                <a href="#about" class="text-white hover:text-amber-400 block px-3 py-2 rounded-md text-lg font-medium transition-colors mobile-menu-link">Über Uns</a>
-                <a href="#services" class="text-white hover:text-amber-400 block px-3 py-2 rounded-md text-lg font-medium transition-colors mobile-menu-link">Leistungen</a>
-                <a href="#projects" class="text-white hover:text-amber-400 block px-3 py-2 rounded-md text-lg font-medium transition-colors mobile-menu-link">Projekte</a>
-                <a href="#contact" class="text-white hover:text-amber-400 block px-3 py-2 rounded-md text-lg font-medium transition-colors mobile-menu-link">Kontakt</a>
+        <div id="mobile-menu" class="md:hidden fixed inset-0 menu-closed transform z-[55] flex flex-col items-center justify-center text-center" style="background-color: rgba(17, 24, 39, 0.98);">
+            <button id="mobile-menu-close-button" class="absolute top-5 right-5 text-white hover:text-amber-400 focus:outline-none p-2 z-[56]">
+                <svg class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <nav class="flex flex-col space-y-6">
+                <a href="#home" class="text-white hover:text-amber-400 block py-3 text-3xl font-semibold transition-colors mobile-menu-link">Startseite</a>
+                <a href="#about" class="text-white hover:text-amber-400 block py-3 text-3xl font-semibold transition-colors mobile-menu-link">Über Uns</a>
+                <a href="#services" class="text-white hover:text-amber-400 block py-3 text-3xl font-semibold transition-colors mobile-menu-link">Leistungen</a>
+                <a href="#projects" class="text-white hover:text-amber-400 block py-3 text-3xl font-semibold transition-colors mobile-menu-link">Projekte</a>
+                <a href="#contact" class="text-white hover:text-amber-400 block py-3 text-3xl font-semibold transition-colors mobile-menu-link">Kontakt</a>
             </nav>
         </div>
     </header>
