@@ -3,727 +3,913 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sascha's Schnelle Gartenhilfe</title>
+    <title>SBS Shekho Bauservice GmbH - Ihr Partner für Bauprojekte</title>
+    <meta name="description" content="SBS Shekho Bauservice GmbH - Ihr Experte für Gala Bau, Trockenbau, umfassenden Tiefbau inklusive Erdarbeiten und Erdbewegungen sowie Glasfasernetzausbau.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #031211;
-            color: #E5E7EB;
-            overflow-x: hidden; /* Verhindert horizontales Scrollen generell */
+            background-color: #1f2937; /* Tailwind gray-800 as base dark background */
+            color: #d1d5db; /* Tailwind gray-300 for base text on dark */
         }
-        .hero-section {
-            background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 70%, #031211 100%), url('https://images.unsplash.com/photo-1601001815894-4bb6c81416d7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1503708928676-1cb796a0891e?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
             background-size: cover;
             background-position: center;
-            min-height: 70vh;
-            height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
+            min-height: 100vh; 
         }
-        .hero-section::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 150px;
-            background: linear-gradient(to bottom, transparent, #031211);
-            z-index: 1;
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            color: #FFFFFF;
-        }
-        .nav-background {
-            background-color: rgba(29, 46, 27, 0.5);
-            backdrop-filter: blur(8px);
-        }
-        .nav-link-separator {
-            border-left: 1px solid rgba(204, 170, 0, 0.5);
-            height: 1.25rem;
-        }
-        .brush-stroke {
-            position: relative;
-            display: inline-block;
-        }
-        .brush-stroke::after {
-            content: '';
-            position: absolute;
-            left: 5%;
-            right: 5%;
-            bottom: -22px;
-            height: 22px;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='25' viewBox='0 0 100 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.5 12.5C12.5 6.25 22.5 18.75 32.5 12.5C42.5 6.25 52.5 18.75 62.5 12.5C72.5 6.25 82.5 18.75 92.5 12.5' stroke='%23CCAA00' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-            filter: drop-shadow(2px 2px 1px rgba(0,0,0,0.1));
-        }
-        .promo-band-container {
-            background-image: linear-gradient(to right, #174C32, #052421);
-            border-radius: 0.5rem;
-            padding: 2rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            color: #FFFFFF;
-        }
-        .logo-container img {
-            height: 50px;
-        }
-        @media (min-width: 768px) {
-            .logo-container img {
-                height: 60px;
-            }
-        }
-
-        .bg-custom-main-footer { background-color: #1D2E1B; }
-        .bg-custom-cta-green { background-color: #174C32; }
-        .text-custom-cta-green { color: #174C32; }
-        .border-custom-accent { border-color: #CCAA00; }
-        .text-custom-accent { color: #CCAA00; }
-        .bg-custom-accent { background-color: #CCAA00; }
-        .hover\:text-custom-accent:hover { color: #CCAA00; }
-        .hover\:bg-custom-accent-darker:hover { background-color: #b39700; }
-
-        .section-title-underline {
-            display: inline-block;
-            padding-bottom: 0.5rem;
-            border-bottom-width: 4px;
-            border-color: #CCAA00;
-            color: #E5E7EB;
-        }
-        .section-text {
-            color: #D1D5DB;
-        }
-
-        .call-now-button {
-            background-color: #174C32;
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            display: inline-flex;
-            align-items: center;
-            color: white;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        .call-now-button:hover {
-            background-color: #113C25;
-        }
-        .call-now-button .icon {
-            background-color: white;
-            color: #174C32;
-            border-radius: 50%;
-            width: 2rem;
-            height: 2rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 0.5rem;
-        }
-        .experience-box {
-            background-image: linear-gradient(to right, #174C32, #052421);
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-            /* Mobile adjustments for experience box */
-            position: absolute;
-            bottom: -1.5rem; /* -bottom-6 */
-            right: -1.5rem;  /* -right-6 */
-            transform: none; /* Remove transform that might cause overflow */
-        }
-        @media (min-width: 768px) { /* md breakpoint */
-            .experience-box {
-                bottom: -2rem; /* -bottom-8 */
-                right: -2rem;  /* -right-8 */
-            }
-        }
-        /* Parent of image and experience box needs overflow hidden if box is to be visually clipped by parent bounds */
-        .ueber-uns-image-container {
-            position: relative;
-            overflow: hidden; /* Helps contain the absolutely positioned box if it still tends to overflow */
-            border-radius: 0.5rem; /* Match image rounding if needed */
-        }
-
-
-        /* Swiper Carousel Styles */
-        .services-carousel {
-            padding-top: 1rem; 
-            padding-bottom: 7rem; /* Increased to make space for nav/pagination below */
-            overflow: hidden;
-        }
-        .swiper-container {
-            width: 100%;
-            padding-top: 30px;
-            padding-bottom: 80px; /* Increased padding for nav/pagination below slides */
-        }
-        .swiper-slide {
-            background-position: center;
-            background-size: cover;
-            width: 280px;
-            height: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-            opacity: 0 !important;
-            transform: scale(0.6) !important;
-            pointer-events: none !important;
-            will-change: transform, opacity;
-        }
-
-        .swiper-slide-active,
-        .swiper-slide-next,
-        .swiper-slide-prev {
-            pointer-events: auto !important;
-        }
-
-        .swiper-slide-active {
-            opacity: 1 !important;
-            transform: scale(1.18) !important;
-            z-index: 20 !important;
-        }
-        .swiper-slide-next,
-        .swiper-slide-prev {
-            opacity: 0.65 !important;
-            transform: scale(0.82) !important;
-            z-index: 10 !important;
-        }
-        .swiper-slide:not(.swiper-slide-active):not(.swiper-slide-next):not(.swiper-slide-prev) {
-            opacity: 0 !important;
-            transform: scale(0.6) !important;
-            z-index: 1 !important;
-            pointer-events: none !important;
-        }
-
-
-        .service-card {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .header-transparent {
             background-color: transparent;
-            border-radius: 0.75rem;
+            position: absolute; 
             width: 100%;
-            overflow: visible;
-        }
-
-        .service-card img {
-            width: 100%;
-            height: 230px;
-            object-fit: cover;
-            border-radius: 0.75rem;
-            display: block;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-            transition: height 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-        .swiper-slide-active .service-card img {
-            height: 360px;
-        }
-        .swiper-slide-next .service-card img,
-        .swiper-slide-prev .service-card img {
-            height: 260px;
-        }
-
-
-        .service-info-box {
-            background-image: linear-gradient(to right, #174C32, #052421);
-            color: white;
-            padding: 0.75rem 1.25rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            text-align: center;
-            width: calc(100% - 20px);
-            max-width: 280px;
-            position: absolute;
-            bottom: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 25;
-            transition: opacity 0.6s ease, transform 0.4s ease, font-size 0.4s ease, padding 0.4s ease, bottom 0.4s ease;
-        }
-
-        .swiper-slide:not(.swiper-slide-active) .service-info-box {
-            padding: 0.5rem 0.75rem;
-            bottom: -30px;
-            width: calc(100% - 30px);
-        }
-        .swiper-slide:not(.swiper-slide-active) .service-info-box h3 {
-            font-size: 0.8rem;
-        }
-        .swiper-slide:not(.swiper-slide-active) .service-info-box p {
-            font-size: 0.7rem;
-        }
-
-        .service-info-box h3 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 0.3rem;
-        }
-        .service-info-box p {
-            font-size: 0.8rem;
-            color: #E0E0E0;
-        }
-        .swiper-pagination-bullet-active {
-            background-color: #CCAA00 !important;
-        }
-        /* Mobile adjustments for Swiper navigation/pagination */
-        .swiper-button-next, .swiper-button-prev {
-            color: #CCAA00 !important;
-            background-color: rgba(29, 46, 27, 0.7);
-            border-radius: 50%;
-            width: 36px; /* Slightly smaller for mobile */
-            height: 36px; /* Slightly smaller for mobile */
-            transition: background-color 0.3s;
-            top: auto; /* Remove fixed vertical centering */
-            bottom: 10px; /* Position at the bottom */
-            margin-top: 0;
-            transform: none; /* Remove translateY */
-        }
-        .swiper-button-prev {
-            left: 10px;
-        }
-        .swiper-button-next {
-            right: 10px;
-        }
-        .swiper-button-next::after, .swiper-button-prev::after {
-            font-size: 1rem !important; /* Smaller arrows for mobile */
-        }
-        .swiper-pagination {
-            bottom: 15px !important; /* Position pagination at the bottom */
-            top: auto !important;
-        }
-
-        @media (min-width: 768px) { /* md breakpoint - Desktop styles for swiper nav */
-            .swiper-button-next, .swiper-button-prev {
-                width: 44px;
-                height: 44px;
-                top: 50%;
-                transform: translateY(-50%);
-                bottom: auto;
-            }
-             .swiper-button-prev {
-                left: 10px; /* Or your preferred desktop position */
-            }
-            .swiper-button-next {
-                right: 10px; /* Or your preferred desktop position */
-            }
-            .swiper-button-next::after, .swiper-button-prev::after {
-                font-size: 1.35rem !important;
-            }
-            .swiper-pagination {
-                bottom: 10px !important; /* Default Swiper pagination position */
-            }
-        }
-
-
-        /* Contact Form Styles */
-        .contact-form input, .contact-form textarea {
-            background-color: rgba(29, 46, 27, 0.5);
-            border: 1px solid rgba(204, 170, 0, 0.3);
-            color: #E5E7EB;
-            border-radius: 0.375rem;
-            padding: 0.75rem 1rem;
-            transition: border-color 0.3s;
-        }
-        .contact-form input:focus, .contact-form textarea:focus {
-            border-color: #CCAA00;
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(204, 170, 0, 0.2);
-        }
-        .contact-form ::placeholder {
-            color: #9CA3AF;
-        }
-
-        /* Progress Bar Styles */
-        .progress-bar-container {
-            margin-bottom: 1.5rem;
-        }
-        .progress-bar-label {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.875rem;
-            color: #D1D5DB;
-            margin-bottom: 0.25rem;
-        }
-        .progress-bar-bg {
-            background-color: rgba(29, 46, 27, 0.7);
-            border-radius: 0.375rem;
-            height: 0.75rem;
-            overflow: hidden;
-        }
-        .progress-bar-fill {
-            background-color: #174C32;
-            height: 100%;
-            border-radius: 0.375rem;
-            transition: width 1s ease-in-out;
-        }
-
-        /* Fullscreen Mobile Menu */
-        #mobile-menu.fullscreen {
-            position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: rgba(3, 18, 17, 0.98); /* #031211 with opacity */
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            overflow-y: auto; /* Allow scrolling if content exceeds height */
+            z-index: 50; 
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
-        #mobile-menu.fullscreen a {
-            font-size: 1.5rem; /* Larger text */
-            padding: 1rem 0; /* More vertical spacing */
+        .header-scrolled {
+            background-color: #111827; 
+            position: fixed; 
             width: 100%;
-            text-align: center;
-            border-bottom: 1px solid rgba(204, 170, 0, 0.3); /* Accent color separator */
+            top: 0;
+            left: 0;
+            z-index: 50;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
-        #mobile-menu.fullscreen a:last-child {
-            border-bottom: none;
+        .header-transparent .nav-link,
+        .header-scrolled .nav-link { 
+            color: white;
         }
-        #mobile-menu.fullscreen .close-menu-button {
+        .header-transparent .nav-link:hover,
+        .header-scrolled .nav-link:hover {
+            color: #fbbf24; 
+        }
+        .logo-image {
+            height: 50px; 
+            width: 50px; 
+            border-radius: 50%; 
+            object-fit: cover; 
+            transition: transform 0.3s ease;
+            background-color: #f3f4f6; 
+        }
+        .logo-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .header-transparent #mobile-menu-button svg,
+        .header-scrolled #mobile-menu-button svg { 
+            stroke: white;
+        }
+        .header-scrolled #mobile-menu-button:hover svg {
+             stroke: #fbbf24; 
+        }
+
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+        .service-card {
+            transition: all 0.3s ease; 
+            background-color: #374151; 
+            color: #d1d5db; 
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(251, 191, 36, 0.2); 
+        }
+        .service-card h3 {
+            color: #fbbf24; 
+        }
+        .project-card {
+             transition: all 0.3s ease; 
+             background-color: #374151; 
+        }
+        .project-card:hover {
+            box-shadow: 0 10px 20px rgba(251, 191, 36, 0.2);
+        }
+        .project-card h3 {
+            color: white;
+        }
+        .project-card p {
+            color: #9ca3af; 
+        }
+        .project-card img {
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Mobile Menu Styling - Using display none/flex */
+        #mobile-menu {
+            background-color: rgba(17, 24, 39, 0.98); /* gray-900 with higher opacity */
+            /* transition: opacity 0.3s ease-in-out; Removed for display change */
+        }
+        .menu-open {
+            display: flex !important; /* Override Tailwind's hidden if md:hidden is still active */
+            opacity: 1;
+        }
+        .menu-closed {
+            display: none !important;
+            opacity: 0;
+        }
+
+        .section-title {
+            color: white;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #fbbf24; 
+            margin: 8px auto 0;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #4b5563; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #fbbf24; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f59e0b; 
+        }
+        .map-container iframe {
             position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            font-size: 2rem;
-            color: #CCAA00; /* Accent color for close button */
-            background: none;
-            border: none;
-            cursor: pointer;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .hero-content-container {
+            padding-top: 120px; 
+            padding-bottom: 40px;
+        }
+        .img-cover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .section-light {
+            background-color: #f9fafb; 
+            color: #1f2937; 
+        }
+        .section-light .section-title {
+            color: #111827; 
+        }
+         .section-light .section-title::after {
+            background-color: #fbbf24; 
+        }
+        .section-light p, .section-light ul li {
+             color: #374151; 
+        }
+        .section-light h3 {
+            color: #111827; 
+        }
+        .section-light .service-card, .section-light .project-card { 
+            background-color: #ffffff; 
+        }
+        .section-light .service-card h3, .section-light .project-card h3 {
+             color: #111827; 
+        }
+         .section-light .service-card p, .section-light .project-card p {
+             color: #4b5563; 
+        }
+        .section-light .service-card a, .section-light .project-card a {
+            color: #d97706; 
+        }
+         .section-light .service-card a:hover, .section-light .project-card a:hover {
+            color: #b45309; 
+        }
+        .section-light .project-filter-btn.active {
+            background-color: #fbbf24; 
+            color: #111827; 
+        }
+        .section-light .project-filter-btn {
+            background-color: #e5e7eb; 
+            color: #374151; 
+        }
+        .section-light .project-filter-btn:hover:not(.active) {
+             background-color: #fde68a; 
         }
 
-
+        .section-light input[type="text"],
+        .section-light input[type="email"],
+        .section-light input[type="tel"],
+        .section-light textarea {
+            border-color: #d1d5db; 
+        }
+        .section-light input[type="text"]:focus,
+        .section-light input[type="email"]:focus,
+        .section-light input[type="tel"]:focus,
+        .section-light textarea:focus {
+            border-color: #fbbf24; 
+            ring-color: #fbbf24; 
+        }
+        .section-light label {
+            color: #374151; 
+        }
+        .footer-dark {
+            background-color: #111827; 
+            color: #d1d5db; 
+        }
+        .footer-dark a {
+            color: #fbbf24; 
+        }
+        .footer-dark a:hover {
+            color: #f59e0b; 
+        }
+        .footer-dark h4 {
+            color: white;
+        }
+        .bg-dark-section {
+             background-color: #1f2937; 
+        }
     </style>
 </head>
-<body class="bg-custom-hero-gradient-dark">
+<body>
 
-    <header class="fixed top-0 left-0 right-0 z-50 py-4 px-6 md:px-12">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="logo-container">
-                <img src="https://i.ibb.co/NWhk3Gz/WhatsApp-Bild-2025-05-19-um-16-59-33-98bf5fb7.jpg" alt="Sascha's Schnelle Gartenhilfe Logo">
-            </div>
-            <nav class="nav-background rounded-lg px-4 py-2 hidden md:flex items-center space-x-1">
-                <a href="#" class="text-white hover:text-custom-accent px-3 py-1 rounded-md text-sm font-medium transition-colors duration-200">Startseite</a>
-                <span class="nav-link-separator"></span>
-                <a href="#leistungen" class="text-white hover:text-custom-accent px-3 py-1 rounded-md text-sm font-medium transition-colors duration-200">Leistungen</a>
-                <span class="nav-link-separator"></span>
-                <a href="#ueber-uns" class="text-white hover:text-custom-accent px-3 py-1 rounded-md text-sm font-medium transition-colors duration-200">Über Uns</a>
-                <span class="nav-link-separator"></span>
-                <a href="#kontakt" class="text-white hover:text-custom-accent px-3 py-1 rounded-md text-sm font-medium transition-colors duration-200">Kontakt</a>
-            </nav>
-            <a href="tel:+4917632930870" class="call-now-button hidden md:inline-flex transform hover:scale-105">
-                <span class="icon"><i class="fas fa-phone-alt"></i></span>
-                Jetzt Anrufen
-            </a>
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-white focus:outline-none hover:text-custom-accent transition-colors duration-200">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
+    <header id="main-header" class="header-transparent">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="#home" class="flex items-center">
+                        <img src="https://ci3.googleusercontent.com/mail-img-att/AGAZnRqvzTymGuc4RVywkbMthEF2RkeAsmqmX8NWRXHuE9sAu0bs9_bPcbiaQL8L-5uwtaP-oSJclynaTYNZevn_xp-f-g9oPvKpZUdTvVwTrJ_scW7aDC6fT8SJSJaJaDmeHtu0cYgUmMURcew9pTxt-F4u0PCfuEwwquTUG_DkSglj5oX49gB5W9rK-Qu6JZ9qdwIPqXC4eeOkynBEz04IE4OdJQPc4ikJtj7ELsMA0ZUVhtHv10TYyjqr74u3ZtR_RJkHy8jXEPg_Fy6HwCNqpbNz_EPYHm4KVC1tCmzs1rbXlWIFGwRijRNwI9QSWxa3__ZdRhGYx1MqJkuKV6swDt-OO3ix6FXTa3ptEPoC23u90Z_uT1mDb5IpH_9PGRYk30cQXt259FSNkKatcRqs_yLSIN5rNQJqbEBbGW1VUg3k01CktegefNFb7TOcKHnnQ9GD-RJuUtUGizoshKqh3qXm1rCztKO4_ml1baEiLtpi66eLSVfEVM5cfvMWtZoHWG4uiL7vQP2R0ppJhOAIw0QfibvvX43z6WLcJF3gb6iLgHS7jmizXCQU-rj6P2SXBbOHP7N-4iDo28Mjturf5JjwVlAPA4RxHANxhl44MI1Q7ohePvVAy0BmuafYKPPj9Rn4O0mjTKjbnexVak8ROhQvFOk5lYDg_onJmWuUNncExOlwqTbmjxdnXV2EnhX3s6fkhUDz8XJPe3NsRhLhjbDKFypqXUe6ZCXIGNmAYdILg4vPchK4hqMAPnV2UV8pW9eirJQtlKErEp93wqBNFLV-wEreGcZ38mKMbeqK_kPUB4PJq5gzXdqUAlDjR7Fo10eEkjT64mK2iLoMVRa98p3BquyqZ92Fw5eY4GyEbQqGjQ63O9ok7q-1fCZgjM-iREMoKlKQ0S9x9bA_XnTYbQNBBfTJYSIcFmDfKpijxTrau44iGK1WUi9Bda7MC4JEFvqaFLriyYV_1S-JpwPOHhOzt176M2VGPR3s7OLQyv0GF46pDktjoJm2vS_6MM-4u2bXjCju8zZ-qP_JFPRsDzGRNlpXxbOO=s0-l75-ft" alt="SBS Shekho Bauservice GmbH Logo" class="logo-image">
+                        <span class="sr-only">SBS Shekho Bauservice GmbH</span>
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#home" class="nav-link px-3 py-2 rounded-md text-sm font-medium transition-colors">Startseite</a>
+                    <a href="#about" class="nav-link px-3 py-2 rounded-md text-sm font-medium transition-colors">Über Uns</a>
+                    <a href="#services" class="nav-link px-3 py-2 rounded-md text-sm font-medium transition-colors">Leistungen</a>
+                    <a href="#projects" class="nav-link px-3 py-2 rounded-md text-sm font-medium transition-colors">Projekte</a>
+                    <a href="#contact" class="nav-link px-3 py-2 rounded-md text-sm font-medium transition-colors">Kontakt</a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="focus:outline-none p-2"> 
+                        <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"> 
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden">
-            <button id="close-menu-button" class="close-menu-button">&times;</button>
-            <a href="#" class="block text-white hover:text-custom-accent px-4 py-3 text-sm font-medium border-b border-gray-700">Startseite</a>
-            <a href="#leistungen" class="block text-white hover:text-custom-accent px-4 py-3 text-sm font-medium border-b border-gray-700">Leistungen</a>
-            <a href="#ueber-uns" class="block text-white hover:text-custom-accent px-4 py-3 text-sm font-medium border-b border-gray-700">Über Uns</a>
-            <a href="#kontakt" class="block text-white hover:text-custom-accent px-4 py-3 text-sm font-medium">Kontakt</a>
-            <a href="tel:+4917632930870" class="block bg-custom-cta-green hover:opacity-90 text-white text-center font-semibold py-3 px-4 mt-8 rounded-lg">Jetzt Anrufen</a>
+        <div id="mobile-menu" class="md:hidden fixed inset-0 menu-closed z-[55] flex flex-col items-center justify-center text-center">
+            <button id="mobile-menu-close-button" class="absolute top-5 right-5 text-white hover:text-amber-400 focus:outline-none p-3 z-[56]"> {/* Increased padding */}
+                <svg class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <nav class="flex flex-col space-y-6">
+                <a href="#home" class="text-white hover:text-amber-400 block py-3 text-3xl font-semibold transition-colors mobile-menu-link">Startseite</a>
+                <a href="#about" class="text-white hover:text-amber-400 block py-3 text-3xl font-semibold transition-colors mobile-menu-link">Über Uns</a>
+                <a href="#services" class="text-white hover:text-amber-400 block py-3 text-3xl font-semibold transition-colors mobile-menu-link">Leistungen</a>
+                <a href="#projects" class="text-white hover:text-amber-400 block py-3 text-3xl font-semibold transition-colors mobile-menu-link">Projekte</a>
+                <a href="#contact" class="text-white hover:text-amber-400 block py-3 text-3xl font-semibold transition-colors mobile-menu-link">Kontakt</a>
+            </nav>
         </div>
     </header>
 
-    <section class="hero-section text-center pt-20">
-        <div class="hero-content">
-            <h1 class="text-4xl md:text-6xl font-bold mb-10 leading-tight"><span class="brush-stroke">Ihr Traumgarten, unsere Leidenschaft.</span></h1>
-            <p class="text-lg md:text-xl mb-10 max-w-2xl mx-auto px-4">Professionelle Gartengestaltung und -pflege – schnell, zuverlässig und ganz nach Ihren Wünschen.</p>
-            <div class="space-y-4 sm:space-y-0 sm:space-x-6">
-                <a href="#leistungen" class="bg-white text-custom-cta-green font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transform hover:scale-105 inline-block text-lg">Unsere Leistungen</a>
-                <a href="#kontakt" class="border-2 border-white text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-white hover:text-custom-cta-green transform hover:scale-105 inline-block text-lg">Kontakt aufnehmen</a>
-            </div>
-        </div>
-    </section>
+    <main>
+        <section id="home" class="hero-bg text-white flex items-center relative"> 
+            <div class="absolute inset-0 bg-black opacity-50 z-0"></div> 
 
-    <section id="promo-band" class="py-12 md:py-16">
-        <div class="container mx-auto px-6">
-            <div class="promo-band-container">
-                <div class="md:flex md:items-center md:justify-between">
-                    <div class="md:w-2/3 mb-8 md:mb-0 text-center md:text-left">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Bereit für Ihren perfekten Garten?</h2>
-                        <p class="text-lg md:text-xl mb-6">Ob Neuanlage, Umgestaltung oder regelmäßige Pflege – wir sind Ihr kompetenter Partner für alle Gartenarbeiten. Entdecken Sie, wie wir Ihren Garten in eine Wohlfühloase verwandeln können. Fragen Sie jetzt unverbindlich an und sichern Sie sich Ihren Termin!</p>
-                    </div>
-                    <div class="md:w-1/3 text-center md:text-right">
-                        <a href="#kontakt" class="bg-white text-custom-cta-green font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transform hover:scale-105 inline-block text-lg">Mehr Erfahren</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="ueber-uns" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-                <div class="md:w-1/2 ueber-uns-image-container"> <img src="https://images.unsplash.com/photo-1601654253194-260e0b6984f9?q=80&w=1999&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gartenarbeit Team" class="rounded-lg shadow-2xl w-full h-auto object-cover" style="max-height: 500px;">
-                    <div class="experience-box text-center"> <p class="text-3xl font-bold">5+</p>
-                        <p class="text-sm">Jahre Erfahrung</p>
-                    </div>
-                </div>
-                <div class="md:w-1/2 text-center md:text-left mt-8 md:mt-0"> <h2 class="text-4xl lg:text-5xl font-bold mb-6 section-title-underline inline-block">Wo Pflanzen ihre Menschen finden.</h2>
-                    <p class="text-lg section-text mb-8">Seit über fünf Jahren verwandeln wir Gärten in grüne Paradiese. Mit Leidenschaft, Fachwissen und einem Auge fürs Detail schaffen wir Außenbereiche, die nicht nur schön aussehen, sondern auch zum Leben und Entspannen einladen. Vertrauen Sie auf unsere Erfahrung für Ihr nächstes Gartenprojekt.</p>
-                    <a href="#kontakt" class="bg-custom-accent text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-custom-accent-darker transition duration-300 ease-in-out transform hover:scale-105 inline-block text-lg">Mehr über uns</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="leistungen" class="py-20 services-carousel">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6 md:mb-8"> 
-                <span class="section-title-underline">Unsere Kernkompetenzen</span>
-            </h2>
-        </div>
-        <div class="swiper-container"> <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Rasen und Wege">
-                        <div class="service-info-box">
-                            <h3>Rasen & Wege</h3>
-                            <p>Perfekter Schnitt, sattes Grün und saubere Pfade.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1721305254301-bc22475ccf14?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Pflanzen für Frühjahr">
-                        <div class="service-info-box">
-                            <h3>Pflanzen für Frühjahr</h3>
-                            <p>Blütenpracht und saisonale Highlights für Ihren Garten.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1680124744736-859f16257ef0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Gehölzschnitt">
-                        <div class="service-info-box">
-                            <h3>Gehölzschnitt</h3>
-                            <p>Formschnitt, Pflege und Fällungen vom Experten.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1560991996-7f87a4a64062?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hochbeete">
-                        <div class="service-info-box">
-                            <h3>Hochbeete</h3>
-                            <p>Maßgefertigte Hochbeete für komfortables Gärtnern.</p>
-                        </div>
-                    </div>
-                </div>
-                 <div class="swiper-slide">
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1682021818030-d92eca06c75e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Ertragsoptimierung">
-                        <div class="service-info-box">
-                            <h3>Ertragsoptimierung</h3>
-                            <p>Fachkundiger Schnitt für reiche Ernten im Obstgarten.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="service-card">
-                        <img src="https://images.unsplash.com/photo-1602002418816-5c0aeef426aa?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Urlaubspflege">
-                        <div class="service-info-box">
-                            <h3>Urlaubspflege</h3>
-                            <p>Wir kümmern uns um Ihren Garten, während Sie entspannen.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-        </div>
-    </section>
-
-    <section id="unsere-philosophie" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-                <div class="md:w-1/2 text-center md:text-left">
-                    <h2 class="text-4xl lg:text-5xl font-bold mb-6 section-title-underline inline-block">Grüne Zukunft, gesunde Gärten.</h2>
-                    <p class="text-lg section-text mb-8">
-                        Wir glauben an nachhaltige Gartenarbeit, die Mensch und Natur in Einklang bringt. Unser Ziel ist es, nicht nur ästhetisch ansprechende, sondern auch ökologisch wertvolle Gärten zu schaffen, die Generationen überdauern.
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 hero-content-container relative z-10">
+                <div class="max-w-2xl text-left">
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                        Ihr Experte für umfassende Baulösungen
+                    </h1>
+                    <p class="text-lg sm:text-xl md:text-2xl mb-8">
+                        Von Gala Bau bis Glasfaserausbau – Qualität und Zuverlässigkeit aus einer Hand.
                     </p>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar-label">
-                            <span>Ökologische Materialien</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="progress-bar-bg">
-                            <div class="progress-bar-fill" style="width: 90%;"></div>
-                        </div>
+                    <div class="space-y-4 sm:space-y-0 sm:flex sm:space-x-4 sm:items-center">
+                        <a href="#services" class="cta-button bg-amber-500 hover:bg-amber-600 text-black font-semibold py-3 px-8 rounded-lg text-lg inline-block shadow-lg hover:shadow-amber-500/50">
+                            Unsere Leistungen
+                        </a>
+                        <a href="#contact" class="text-amber-400 underline hover:text-amber-300 font-semibold py-3 px-2 text-lg transition-colors">
+                            Angebot anfordern
+                        </a>
                     </div>
-                    <div class="progress-bar-container">
-                        <div class="progress-bar-label">
-                            <span>Regionale Pflanzenwahl</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="progress-bar-bg">
-                            <div class="progress-bar-fill" style="width: 80%;"></div>
-                        </div>
-                    </div>
-                     <a href="#kontakt" class="mt-8 bg-custom-accent text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-custom-accent-darker transition duration-300 ease-in-out transform hover:scale-105 inline-block text-lg">
-                        Unsere Werte entdecken
-                    </a>
-                </div>
-                <div class="md:w-1/2">
-                    <img src="https://images.unsplash.com/photo-1707129901265-c5bfee67a60b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Nachhaltige Gartengestaltung Grafik" class="rounded-lg shadow-2xl w-full h-auto object-cover" style="max-height: 500px;">
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="kontakt" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold">
-                    <span class="section-title-underline">Nehmen Sie Kontakt auf</span>
-                </h2>
-                <p class="section-text mt-4 max-w-2xl mx-auto">
-                    Haben Sie Fragen oder möchten Sie ein unverbindliches Angebot? Füllen Sie einfach das Formular aus oder rufen Sie uns an. Wir freuen uns auf Ihre Nachricht!
-                </p>
+        <section class="py-16 bg-dark-section"> 
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold mb-2 section-title">Unsere Kernkompetenzen</h2>
+                <p class="text-gray-400 mb-12 max-w-2xl mx-auto">Wir sind Ihr vielseitiger Partner für Gala Bau, Trockenbau, umfassenden Tiefbau und zukunftssicheren Glasfaserausbau.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="service-card p-6 rounded-lg shadow-lg hover:shadow-amber-500/20">
+                        <img src="https://placehold.co/100x100/f59e0b/1f2937?text=🌳" alt="[Icon für Garten- und Landschaftsbau]" class="mx-auto mb-4 rounded-full border-2 border-amber-500">
+                        <h3 class="text-xl font-semibold mb-2">Gala Bau</h3>
+                        <p class="text-sm mb-4">Kreative Gestaltung und professionelle Umsetzung Ihrer Außenanlagen.</p>
+                        <a href="#service-gala" class="text-amber-400 hover:text-amber-500 font-semibold">Mehr erfahren →</a>
+                    </div>
+                    <div class="service-card p-6 rounded-lg shadow-lg hover:shadow-amber-500/20">
+                        <img src="https://placehold.co/100x100/f59e0b/1f2937?text=🧱" alt="[Icon für Trockenbau]" class="mx-auto mb-4 rounded-full border-2 border-amber-500">
+                        <h3 class="text-xl font-semibold mb-2">Trockenbau</h3>
+                        <p class="text-sm mb-4">Flexibler Innenausbau für moderne Raumkonzepte.</p>
+                        <a href="#service-trockenbau" class="text-amber-400 hover:text-amber-500 font-semibold">Mehr erfahren →</a>
+                    </div>
+                    <div class="service-card p-6 rounded-lg shadow-lg hover:shadow-amber-500/20">
+                        <img src="https://placehold.co/100x100/f59e0b/1f2937?text=🚜" alt="[Icon für Tiefbau und Erdarbeiten]" class="mx-auto mb-4 rounded-full border-2 border-amber-500">
+                        <h3 class="text-xl font-semibold mb-2">Tiefbau & Erdarbeiten</h3>
+                        <p class="text-sm mb-4">Umfassende Lösungen für Erdbewegungen und solide Fundamente.</p>
+                        <a href="#service-tiefbau" class="text-amber-400 hover:text-amber-500 font-semibold">Mehr erfahren →</a>
+                    </div>
+                    <div class="service-card p-6 rounded-lg shadow-lg hover:shadow-amber-500/20">
+                        <img src="https://placehold.co/100x100/f59e0b/1f2937?text=🌐" alt="[Icon für Glasfasernetzausbau]" class="mx-auto mb-4 rounded-full border-2 border-amber-500">
+                        <h3 class="text-xl font-semibold mb-2">Glasfasernetzausbau</h3>
+                        <p class="text-sm mb-4">Ihr Partner für die digitale Infrastruktur der Zukunft.</p>
+                        <a href="#service-glasfaser" class="text-amber-400 hover:text-amber-500 font-semibold">Mehr erfahren →</a>
+                    </div>
+                </div>
             </div>
-
-            <div class="max-w-3xl mx-auto bg-custom-main-footer p-8 md:p-12 rounded-xl shadow-2xl contact-form">
-                <form action="#" method="POST"> <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Name</label>
-                            <input type="text" name="name" id="name" required placeholder="Ihr Name">
+        </section>
+        
+        <section class="py-16 section-light"> 
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-4 section-title text-left md:text-left after:mx-0 after:md:mx-0">Vertrauen und Qualität, die überzeugen</h2>
+                        <p class="mb-6">
+                            Wir legen größten Wert auf die Zufriedenheit unserer Kunden und die Qualität unserer Arbeit. 
+                            Zahlreiche erfolgreich abgeschlossene Projekte und positive Rückmeldungen bestätigen unseren Anspruch.
+                        </p>
+                        <div class="flex flex-wrap gap-4 mb-6">
+                            <img src="https://placehold.co/100x50/fbbf24/111827?text=Zertifikat+1" alt="[Platzhalter für Zertifikat 1]" class="h-12 rounded border border-amber-500">
+                            <img src="https://placehold.co/100x50/fbbf24/111827?text=Zertifikat+2" alt="[Platzhalter für Zertifikat 2]" class="h-12 rounded border border-amber-500">
                         </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-300 mb-1">E-Mail</label>
-                            <input type="email" name="email" id="email" required placeholder="Ihre E-Mail-Adresse">
+                        <a href="#contact" class="cta-button bg-amber-500 hover:bg-amber-600 text-black font-semibold py-3 px-6 rounded-lg text-md shadow-lg hover:shadow-amber-500/50">
+                            Jetzt Projekt besprechen
+                        </a>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-lg shadow-lg border-l-4 border-amber-500">
+                            <p class="text-gray-700 italic mb-2">"SBS Shekho Bauservice hat unseren Garten in eine Wohlfühloase verwandelt. Professionell, schnell und zuverlässig!"</p>
+                            <p class="text-gray-800 font-semibold">- Max M., Würzburg</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-lg border-l-4 border-amber-500">
+                            <p class="text-gray-700 italic mb-2">"Der Glasfaserausbau wurde termingerecht und in höchster Qualität durchgeführt. Sehr empfehlenswert!"</p>
+                            <p class="text-gray-800 font-semibold">- Erika S., Bauunternehmen</p>
                         </div>
                     </div>
-                    <div class="mb-6">
-                        <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Betreff</label>
-                        <input type="text" name="subject" id="subject" required placeholder="Betreff Ihrer Anfrage">
-                    </div>
-                    <div class="mb-8">
-                        <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Nachricht</label>
-                        <textarea name="message" id="message" rows="5" required placeholder="Ihre Nachricht an uns..."></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="bg-custom-accent text-white font-semibold py-3 px-10 rounded-lg shadow-md hover:bg-custom-accent-darker transition duration-300 ease-in-out transform hover:scale-105 text-lg">
-                            Nachricht Senden
-                        </button>
-                    </div>
-                </form>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer class="bg-custom-main-footer text-white py-12 border-t border-gray-700">
-        <div class="container mx-auto px-6 text-center">
-            <div class="mb-6">
-                 <img src="https://i.ibb.co/NWhk3Gz/WhatsApp-Bild-2025-05-19-um-16-59-33-98bf5fb7.jpg" alt="Sascha's Schnelle Gartenhilfe Logo Klein" class="h-12 mx-auto mb-4">
-                <p class="text-gray-400 text-sm">Ihr Partner für professionelle Gartengestaltung und -pflege.</p>
+        <section id="about" class="py-16 bg-dark-section"> 
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold mb-12 text-center section-title">Über Uns: Ihr starker Partner am Bau</h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="rounded-lg shadow-xl overflow-hidden h-96">
+                        <img src="https://images.unsplash.com/photo-1577896021507-78957e4b77d2?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="[Team von SBS Shekho Bauservice bei der Arbeit]" class="img-cover">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-4 text-amber-400">Unsere Geschichte und Philosophie</h3>
+                        <p class="text-gray-300 mb-4">
+                            Die SBS Shekho Bauservice GmbH wurde mit der Vision gegründet, hochwertige Baudienstleistungen anzubieten, die auf Vertrauen, Fachkompetenz und Innovation basieren. Seit unserer Gründung haben wir uns kontinuierlich weiterentwickelt und unser Leistungsspektrum erweitert, um den vielfältigen Anforderungen unserer Kunden gerecht zu werden.
+                        </p>
+                        <p class="text-gray-300 mb-6">
+                            Unsere Philosophie ist einfach: Wir hören zu, planen sorgfältig und setzen präzise um. Qualität, Zuverlässigkeit und die Zufriedenheit unserer Auftraggeber stehen für uns an erster Stelle. Wir sind stolz auf unsere regionale Verankerung und unser Engagement für nachhaltige Bauweisen.
+                        </p>
+                        <h3 class="text-2xl font-semibold mb-4 text-amber-400">Qualifikationen und Werte</h3>
+                        <p class="text-gray-300 mb-2">
+                            Unser Team besteht aus erfahrenen Fachkräften, die regelmäßig geschult werden, um stets auf dem neuesten Stand der Technik zu sein. Wir verfügen über die notwendigen Zertifizierungen und Qualifikationen, um auch anspruchsvolle Projekte erfolgreich zu realisieren.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-300 space-y-1 mb-6">
+                            <li>Zertifizierter Fachbetrieb (Platzhalter)</li>
+                            <li>Mitglied im Fachverband XY (Platzhalter)</li>
+                            <li>Präqualifikation für öffentliche Aufträge (Platzhalter)</li>
+                        </ul>
+                        <p class="text-gray-300">
+                            Unsere Werte – Qualität, Zuverlässigkeit, Innovation und Kundennähe – sind das Fundament unserer täglichen Arbeit.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="mb-6">
-                <a href="tel:+4917632930870" class="text-custom-accent hover:underline mx-2">Tel: 0176 329 308 70</a>
-                <span class="text-gray-500 mx-1">|</span>
-                <a href="mailto:ds.hilfe@web.de" class="text-custom-accent hover:underline mx-2">E-Mail: ds.hilfe@web.de</a>
+        </section>
+
+        <section id="services" class="py-16 section-light"> 
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold mb-12 text-center section-title">Unsere Leistungen im Detail</h2>
+                
+                <div id="service-gala" class="mb-16 p-8 bg-white rounded-lg shadow-xl border-t-4 border-amber-500">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4 text-amber-600">Garten- und Landschaftsbau (Gala Bau)</h3>
+                            <p class="mb-4">
+                                Wir verwandeln Ihre Außenbereiche in individuelle Lebensräume. Von der Planung und Gestaltung von Gärten, Höfen und Einfahrten bis hin zu Pflasterarbeiten für Wege und Terrassen, der Errichtung von Mauern und Zäunen sowie der Anlage von Grünflächen – wir sind Ihr kompetenter Partner.
+                            </p>
+                            <ul class="list-disc list-inside space-y-1 mb-4">
+                                <li>Planung und Gestaltung von Außenanlagen</li>
+                                <li>Pflasterarbeiten (Wege, Terrassen, Einfahrten)</li>
+                                <li>Mauer- und Zaunbau</li>
+                                <li>Anlage von Grünflächen und Pflanzungen</li>
+                            </ul>
+                            <p class="font-semibold mb-4">Ihr Vorteil: Langlebige Ergebnisse durch hochwertige Materialien und ausgewiesene Fachkompetenz.</p>
+                            <a href="#contact" class="cta-button bg-amber-500 hover:bg-amber-600 text-black font-semibold py-2 px-4 rounded-lg text-sm shadow-md hover:shadow-amber-500/40">
+                                Gala Bau Projekt anfragen
+                            </a>
+                        </div>
+                        <div class="rounded-lg shadow-md overflow-hidden h-80">
+                            <img src="https://images.unsplash.com/photo-1578302758063-0ef3e048ca89?q=80&w=2676&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="[Garten- und Landschaftsbau Projekt]" class="img-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="service-trockenbau" class="mb-16 p-8 bg-white rounded-lg shadow-xl border-t-4 border-amber-500">
+                     <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="md:order-2">
+                            <h3 class="text-2xl font-semibold mb-4 text-amber-600">Trockenbau</h3>
+                            <p class="mb-4">
+                                Mit modernen Trockenbausystemen schaffen wir flexible und funktionale Innenräume. Ob Trennwände, abgehängte Decken, Akustikbau zur Verbesserung der Raumakustik oder Brandschutzverkleidungen – wir setzen Ihre Wünsche präzise um.
+                            </p>
+                            <ul class="list-disc list-inside space-y-1 mb-4">
+                                <li>Umfassender Innenausbau</li>
+                                <li>Erstellung flexibler Trennwände</li>
+                                <li>Abgehängte Decken und Deckenbekleidungen</li>
+                                <li>Akustikbau und Schallschutz</li>
+                                <li>Brandschutzkonstruktionen</li>
+                            </ul>
+                            <p class="font-semibold mb-4">Ihr Vorteil: Schnelle, saubere und kosteneffiziente Lösungen für den Innenausbau.</p>
+                            <a href="#contact" class="cta-button bg-amber-500 hover:bg-amber-600 text-black font-semibold py-2 px-4 rounded-lg text-sm shadow-md hover:shadow-amber-500/40">
+                                Trockenbau Projekt anfragen
+                            </a>
+                        </div>
+                        <div class="md:order-1 rounded-lg shadow-md overflow-hidden h-80">
+                            <img src="https://images.unsplash.com/photo-1733431772808-82d878e59000?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="[Trockenbau Projekt]" class="img-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="service-tiefbau" class="mb-16 p-8 bg-white rounded-lg shadow-xl border-t-4 border-amber-500">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4 text-amber-600">Tiefbau (inkl. Erdarbeiten & Erdbewegungen)</h3>
+                            <p class="mb-4">
+                                Als ausgewiesene Spezialisten im Tiefbau bilden wir das Fundament für Ihr Projekt. Dieser Bereich ist eine unserer Kernkompetenzen und umfasst ein breites Spektrum an Leistungen. Insbesondere sind wir Ihr Ansprechpartner für umfangreiche Erdarbeiten und professionelle Erdbewegungen.
+                            </p>
+                            <ul class="list-disc list-inside space-y-1 mb-4">
+                                <li>Umfassende Erdarbeiten und Erdbewegungen</li>
+                                <li>Ausheben von Baugruben</li>
+                                <li>Geländemodellierung</li>
+                                <li>Kanalbau und Anschluss an öffentliche Netze</li>
+                                <li>Verlegung von Entwässerungssystemen</li>
+                                <li>Erstellung von Fundamenten für diverse Bauwerke</li>
+                            </ul>
+                            <p class="font-semibold mb-4">Ihr Vorteil: Geballte Kompetenz und modernster Maschinenpark für alle Tiefbau- und Erdarbeiten.</p>
+                            <a href="#contact" class="cta-button bg-amber-500 hover:bg-amber-600 text-black font-semibold py-2 px-4 rounded-lg text-sm shadow-md hover:shadow-amber-500/40">
+                                Tiefbau Projekt anfragen
+                            </a>
+                        </div>
+                        <div class="rounded-lg shadow-md overflow-hidden h-80">
+                             <img src="https://images.unsplash.com/photo-1694521787673-28cbd8830ea5?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="[Tiefbau und Erdarbeiten Projekt]" class="img-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="service-glasfaser" class="p-8 bg-white rounded-lg shadow-xl border-t-4 border-amber-500">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="md:order-2">
+                            <h3 class="text-2xl font-semibold mb-4 text-amber-600">Glasfasernetzausbau</h3>
+                            <p class="mb-4">
+                                Wir gestalten die digitale Zukunft mit! Als Ihr kompetenter Partner bauen wir das Glasfasernetz aus und sorgen für eine zukunftssichere Infrastruktur. Unsere Expertise umfasst die fachgerechte Planung, die notwendigen Tiefbauleistungen sowie die präzise Verlegung und Montage.
+                            </p>
+                            <ul class="list-disc list-inside space-y-1 mb-4">
+                                <li>Fachgerechte Planung von Glasfasernetzen</li>
+                                <li>Tiefbauleistungen für Kabelverlegung</li>
+                                <li>Verlegung von Leerrohren und Glasfaserkabeln</li>
+                                <li>Montage der Anschlüsse und Verteilertechnik</li>
+                                <li>Realisierung von FTTH & FTTB Projekten</li>
+                            </ul>
+                            <p class="font-semibold mb-4">Ihr Vorteil: Schnelles Internet und digitale Vernetzung aus einer Hand.</p>
+                            <a href="#contact" class="cta-button bg-amber-500 hover:bg-amber-600 text-black font-semibold py-2 px-4 rounded-lg text-sm shadow-md hover:shadow-amber-500/40">
+                                Glasfaser Projekt anfragen
+                            </a>
+                        </div>
+                        <div class="md:order-1 rounded-lg shadow-md overflow-hidden h-80">
+                            <img src="https://images.unsplash.com/photo-1604869515882-4d10fa4b0492?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="[Glasfasernetz Ausbau Projekt]" class="img-cover">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="text-gray-500 text-sm">
-                <p>&copy; <span id="currentYear"></span> Sascha's Schnelle Gartenhilfe. Alle Rechte vorbehalten.</p>
-                <p class="mt-1">
-                    <a href="#impressum" class="hover:text-custom-accent transition-colors">Impressum</a> | 
-                    <a href="#datenschutz" class="hover:text-custom-accent transition-colors">Datenschutz</a>
+        </section>
+
+        <section id="projects" class="py-16 bg-dark-section"> 
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold mb-12 text-center section-title">Unsere Referenzprojekte</h2>
+                <p class="text-gray-400 mb-8 text-center max-w-2xl mx-auto">
+                    Überzeugen Sie sich selbst von unserer Arbeit. Hier sehen Sie eine Auswahl erfolgreich abgeschlossener Projekte aus unseren verschiedenen Leistungsbereichen.
                 </p>
+                
+                <div class="flex justify-center space-x-2 mb-8 flex-wrap">
+                    <button class="project-filter-btn active bg-amber-500 text-black py-2 px-4 rounded-md" data-filter="all">Alle</button>
+                    <button class="project-filter-btn bg-gray-700 hover:bg-amber-500 hover:text-black text-white py-2 px-4 rounded-md" data-filter="gala">Gala Bau</button>
+                    <button class="project-filter-btn bg-gray-700 hover:bg-amber-500 hover:text-black text-white py-2 px-4 rounded-md" data-filter="trockenbau">Trockenbau</button>
+                    <button class="project-filter-btn bg-gray-700 hover:bg-amber-500 hover:text-black text-white py-2 px-4 rounded-md" data-filter="tiefbau">Tiefbau</button>
+                    <button class="project-filter-btn bg-gray-700 hover:bg-amber-500 hover:text-black text-white py-2 px-4 rounded-md" data-filter="glasfaser">Glasfaser</button>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 project-gallery">
+                    <div class="project-card rounded-lg shadow-lg overflow-hidden hover:shadow-amber-500/30" data-category="gala">
+                        <div class="h-56 overflow-hidden">
+                           <img src="https://images.unsplash.com/photo-1708808492741-e89094924dc0?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="[Neugestaltung einer Gartenanlage]" class="img-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Neugestaltung Gartenanlage</h3>
+                            <p class="text-sm text-amber-400 mb-1">Kategorie: Gala Bau</p>
+                            <p class="text-sm mb-4">Komplette Neugestaltung einer privaten Gartenanlage inklusive Terrassenbau und Pflanzarbeiten.</p>
+                        </div>
+                    </div>
+                    <div class="project-card rounded-lg shadow-lg overflow-hidden hover:shadow-amber-500/30" data-category="tiefbau">
+                        <div class="h-56 overflow-hidden">
+                           <img src="https://images.unsplash.com/photo-1587052694737-a972e4186288?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="[Baugrubenaushub für eine Industriehalle]" class="img-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Baugrubenaushub Industriehalle</h3>
+                            <p class="text-sm text-amber-400 mb-1">Kategorie: Tiefbau</p>
+                            <p class="text-sm mb-4">Professioneller Aushub einer Baugrube für eine neue Industriehalle, inklusive Abtransport des Materials.</p>
+                        </div>
+                    </div>
+                    <div class="project-card rounded-lg shadow-lg overflow-hidden hover:shadow-amber-500/30" data-category="glasfaser">
+                        <div class="h-56 overflow-hidden">
+                           <img src="https://images.unsplash.com/photo-1744868562210-fffb7fa882d9?q=80&w=2613&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="[Glasfaseranschluss für ein Wohngebiet]" class="img-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Glasfaseranschluss Wohngebiet</h3>
+                            <p class="text-sm text-amber-400 mb-1">Kategorie: Glasfaserausbau</p>
+                            <p class="text-sm mb-4">Verlegung von Glasfaserkabeln und Hausanschlüssen in einem Neubaugebiet.</p>
+                        </div>
+                    </div>
+                     <div class="project-card rounded-lg shadow-lg overflow-hidden hover:shadow-amber-500/30" data-category="trockenbau">
+                        <div class="h-56 overflow-hidden">
+                           <img src="https://images.unsplash.com/photo-1610264146566-c233419fb1c7?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="[Innenausbau eines Bürokomplexes]" class="img-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Innenausbau Bürokomplex</h3>
+                            <p class="text-sm text-amber-400 mb-1">Kategorie: Trockenbau</p>
+                            <p class="text-sm mb-4">Moderner Innenausbau mit Akustikdecken und flexiblen Trennwandsystemen.</p>
+                        </div>
+                    </div>
+                    <div class="project-card rounded-lg shadow-lg overflow-hidden hover:shadow-amber-500/30" data-category="gala">
+                        <div class="h-56 overflow-hidden">
+                           <img src="https://images.unsplash.com/photo-1591091421779-f5ffb333c27c?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="[Gartenumgestaltung Vorher/Nachher]" class="img-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Gartenumgestaltung (Vorher/Nachher)</h3>
+                            <p class="text-sm text-amber-400 mb-1">Kategorie: Gala Bau</p>
+                            <p class="text-sm mb-4">Eindrucksvolle Verwandlung eines Gartens – Vorher-Nachher-Ansicht.</p>
+                        </div>
+                    </div>
+                    <div class="project-card rounded-lg shadow-lg overflow-hidden hover:shadow-amber-500/30" data-category="tiefbau">
+                        <div class="h-56 overflow-hidden">
+                           <img src="https://images.unsplash.com/photo-1680206491409-bc73fce33707?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="[Kanalbauarbeiten für eine Gemeinde]" class="img-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Kanalbau Gemeinde X</h3>
+                            <p class="text-sm text-amber-400 mb-1">Kategorie: Tiefbau</p>
+                            <p class="text-sm mb-4">Erneuerung und Ausbau des Kanalnetzes in einer Gemeinde.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 section-light"> 
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold mb-12 text-center section-title">Kontaktieren Sie Uns</h2>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="bg-white p-8 rounded-lg shadow-xl border-t-4 border-amber-500">
+                        <h3 class="text-2xl font-semibold mb-6 text-gray-800">Schreiben Sie uns eine Nachricht</h3>
+                        <form id="contactForm">
+                            <div class="mb-4">
+                                <label for="name" class="block text-sm font-medium mb-1">Name</label>
+                                <input type="text" id="name" name="name" required class="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-sm font-medium mb-1">E-Mail</label>
+                                <input type="email" id="email" name="email" required class="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="phone" class="block text-sm font-medium mb-1">Telefon (optional)</label>
+                                <input type="tel" id="phone" name="phone" class="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="subject" class="block text-sm font-medium mb-1">Betreff</label>
+                                <input type="text" id="subject" name="subject" required class="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500">
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-sm font-medium mb-1">Ihre Nachricht</label>
+                                <textarea id="message" name="message" rows="4" required class="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500"></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="cta-button w-full bg-amber-500 hover:bg-amber-600 text-black font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-amber-500/50">
+                                    Nachricht senden
+                                </button>
+                            </div>
+                            <div id="form-message" class="mt-4 text-sm"></div>
+                        </form>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-xl border-t-4 border-amber-500">
+                        <h3 class="text-2xl font-semibold mb-6 text-gray-800">Unsere Kontaktdaten</h3>
+                        <div class="space-y-4">
+                            <p>
+                                <strong class="text-gray-800">SBS Shekho Bauservice GmbH</strong><br>
+                                Musterstraße 123<br>
+                                97070 Würzburg (Platzhalter)
+                            </p>
+                            <p>
+                                <strong class="text-gray-800">Telefon:</strong> 
+                                <a href="tel:+491234567890" class="text-amber-600 hover:text-amber-700">+49 123 4567890</a> (Platzhalter)
+                            </p>
+                            <p>
+                                <strong class="text-gray-800">E-Mail:</strong> 
+                                <a href="mailto:info@sbs-shekho-bau.de" class="text-amber-600 hover:text-amber-700">info@sbs-shekho-bau.de</a> (Platzhalter)
+                            </p>
+                            <p>
+                                <strong class="text-gray-800">Geschäftszeiten:</strong><br>
+                                Mo - Fr: 08:00 - 17:00 Uhr (Platzhalter)<br>
+                                Und nach Vereinbarung
+                            </p>
+                        </div>
+                        <div class="mt-8 map-container relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2576.989529077064!2d9.92803891570699!3d49.79270997938956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479fc23b79ab3a8d%3A0x8be9325f60827073!2sW%C3%BCrzburg%20Residence!5e0!3m2!1sde!2sde!4v1620290118759!5m2!1sde!2sde" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy"
+                                title="Kartenansicht des Unternehmensstandorts">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-dark py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="text-lg font-semibold mb-3">SBS Shekho Bauservice GmbH</h4>
+                    <p class="text-sm">Ihr zuverlässiger Partner für alle Bauvorhaben. Qualität, Erfahrung und Innovation aus einer Hand.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-3">Schnellnavigation</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#home" class="transition-colors">Startseite</a></li>
+                        <li><a href="#about" class="transition-colors">Über Uns</a></li>
+                        <li><a href="#services" class="transition-colors">Leistungen</a></li>
+                        <li><a href="#projects" class="transition-colors">Projekte</a></li>
+                        <li><a href="#contact" class="transition-colors">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-3">Rechtliches</h4>
+                     <ul class="space-y-2 text-sm">
+                        <li><a href="#impressum" id="impressum-link" class="transition-colors">Impressum</a></li>
+                        <li><a href="#datenschutz" id="datenschutz-link" class="transition-colors">Datenschutzerklärung</a></li>
+                    </ul>
+                    <p class="mt-4 text-xs text-gray-400">
+                        Hinweis: Ein vollständiges Google Unternehmensprofil ist für lokale Sichtbarkeit unerlässlich.
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
+                <p>© <span id="currentYear"></span> SBS Shekho Bauservice GmbH. Alle Rechte vorbehalten.</p>
+                <p class="text-xs mt-1">Webdesign von AI - Bitte Inhalte und rechtliche Texte prüfen und anpassen.</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <div id="impressum-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-[60] hidden">
+        <div class="bg-white p-8 rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto text-gray-800">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold">Impressum</h2>
+                <button id="close-impressum-modal" class="text-gray-500 hover:text-gray-700 text-3xl leading-none">×</button>
+            </div>
+            <p>
+                <strong>Angaben gemäß § 5 TMG:</strong><br><br>
+                SBS Shekho Bauservice GmbH<br>
+                Musterstraße 123<br>
+                97070 Würzburg<br><br>
+                <strong>Vertreten durch:</strong><br>
+                Herr [Vorname Nachname Geschäftsführer, z.B. Ali Shekho] (Platzhalter)<br><br>
+                <strong>Kontakt:</strong><br>
+                Telefon: +49 123 4567890 (Platzhalter)<br>
+                E-Mail: info@sbs-shekho-bau.de (Platzhalter)<br><br>
+                <strong>Registereintrag:</strong><br>
+                Eintragung im Handelsregister.<br>
+                Registergericht: Amtsgericht Würzburg (Platzhalter)<br>
+                Registernummer: HRB XXXXX (Platzhalter)<br><br>
+                <strong>Umsatzsteuer-ID:</strong><br>
+                Umsatzsteuer-Identifikationsnummer gemäß §27a Umsatzsteuergesetz:<br>
+                DEXXXXXXXXX (Platzhalter)<br><br>
+                <strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
+                Herr [Vorname Nachname Geschäftsführer]<br>
+                Anschrift wie oben<br><br>
+                <em>Bitte füllen Sie diese Angaben mit Ihren korrekten Unternehmensdaten aus. Dies ist nur ein Platzhalter. Holen Sie ggf. Rechtsberatung ein.</em>
+            </p>
+        </div>
+    </div>
+
+    <div id="datenschutz-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-[60] hidden">
+        <div class="bg-white p-8 rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto text-gray-800">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold">Datenschutzerklärung</h2>
+                <button id="close-datenschutz-modal" class="text-gray-500 hover:text-gray-700 text-3xl leading-none">×</button>
+            </div>
+            <p>
+                Hier steht Ihre ausführliche Datenschutzerklärung gemäß DSGVO.<br><br>
+                <strong>Wichtige Punkte, die abgedeckt werden müssen:</strong>
+                </p>
+                <ul class="list-disc list-inside space-y-1 my-4">
+                    <li>Verantwortlicher für die Datenverarbeitung</li>
+                    <li>Kontaktdaten des Datenschutzbeauftragten (falls vorhanden)</li>
+                    <li>Zwecke und Rechtsgrundlagen der Datenverarbeitung</li>
+                    <li>Datenverarbeitung beim Besuch der Webseite (Server-Logfiles, IP-Adressen)</li>
+                    <li>Verwendung von Cookies (Art, Zweck, Opt-out)</li>
+                    <li>Kontaktformular (Art der erhobenen Daten, Zweck, Rechtsgrundlage, Speicherdauer)</li>
+                    <li>Einbindung von Diensten Dritter (z.B. Google Maps, Webanalyse-Tools)</li>
+                    <li>Rechte der betroffenen Personen (Auskunft, Berichtigung, Löschung, etc.)</li>
+                    <li>Beschwerderecht bei einer Aufsichtsbehörde</li>
+                </ul>
+            <p>
+                <em>Dies ist nur ein Platzhalter. Eine individuelle, rechtskonforme Datenschutzerklärung ist unerlässlich. Nutzen Sie Generatoren oder holen Sie Rechtsberatung ein.</em>
+            </p>
+        </div>
+    </div>
+
+
     <script>
-        // Mobile menu toggle
+        const mainHeader = document.getElementById('main-header');
         const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenuCloseButton = document.getElementById('mobile-menu-close-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        const closeMenuButton = document.getElementById('close-menu-button');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
 
-        if (mobileMenuButton && mobileMenu && closeMenuButton) {
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.remove('hidden');
-                mobileMenu.classList.add('fullscreen');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling of body when menu is open
-            });
-            closeMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('fullscreen');
-                document.body.style.overflow = ''; // Restore scrolling of body
-            });
-            // Close menu when a link is clicked
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.remove('fullscreen');
-                    document.body.style.overflow = '';
-                });
-            });
-        }
+        // Toggle Mobile Menu
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('menu-closed');
+            mobileMenu.classList.add('menu-open');
+        });
 
-
-        // Set current year in footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const headerOffset = document.querySelector('header').offsetHeight || 70;
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                    window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+        mobileMenuCloseButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('menu-open');
+            mobileMenu.classList.add('menu-closed');
+        });
+        
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('menu-open');
+                mobileMenu.classList.add('menu-closed');
+                const targetId = link.getAttribute('href');
+                 if (targetId.startsWith('#') && targetId.length > 1) {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        setTimeout(() => {
+                            const headerOffset = mainHeader.classList.contains('header-scrolled') ? mainHeader.offsetHeight : 0;
+                            const elementPosition = targetElement.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                            window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+                        }, 100);
+                    }
                 }
             });
         });
 
-        // Initialize Swiper
-        var swiper = new Swiper('.swiper-container', {
-            effect: 'coverflow',
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: 'auto',
-            loop: true,
-            loopAdditionalSlides: 4, 
-            watchSlidesVisibility: true,
-            watchSlidesProgress: true,
-            coverflowEffect: {
-                rotate: 0,
-                stretch: 15,
-                depth: 200,
-                modifier: 1.2,  
-                slideShadows: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { 
+                mainHeader.classList.remove('header-transparent');
+                mainHeader.classList.add('header-scrolled');
+            } else {
+                mainHeader.classList.add('header-transparent');
+                mainHeader.classList.remove('header-scrolled');
+            }
+        });
+
+        // Smooth Scrolling for Anker-Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.classList.contains('mobile-menu-link')) {
+                    e.preventDefault(); 
+                    return;
+                }
+                if (this.id === 'impressum-link' || this.id === 'datenschutz-link') {
+                    return; 
+                }
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId.length > 1) {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerOffset = mainHeader.classList.contains('header-scrolled') ? mainHeader.offsetHeight : 0;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                }
+            });
+        });
+
+        // Current Year for Footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Contact Form Submission (Placeholder)
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('form-message');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                formMessage.textContent = 'Vielen Dank! Ihre Nachricht wurde (simuliert) gesendet. Wir werden uns bald bei Ihnen melden.';
+                formMessage.className = 'mt-4 text-sm text-green-600'; 
+                contactForm.reset();
+                setTimeout(() => {
+                    formMessage.textContent = '';
+                    formMessage.className = 'mt-4 text-sm';
+                }, 5000);
+            });
+        }
+
+        // Project Filter Logic
+        const filterButtons = document.querySelectorAll('.project-filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const currentSection = button.closest('section');
+                const isActiveLight = currentSection.classList.contains('section-light');
+
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (isActiveLight) {
+                        btn.classList.remove('bg-amber-500', 'text-black');
+                        btn.classList.add('bg-gray-200', 'text-gray-700');
+                    } else {
+                        btn.classList.remove('bg-amber-500', 'text-black');
+                        btn.classList.add('bg-gray-700', 'text-white');
+                    }
+                });
+                button.classList.add('active', 'bg-amber-500', 'text-black');
+                 if (isActiveLight) {
+                    button.classList.remove('bg-gray-200', 'text-gray-700');
+                } else {
+                    button.classList.remove('bg-gray-700', 'text-white');
+                }
+
+
+                const filter = button.dataset.filter;
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal Logic
+        const impressumLink = document.getElementById('impressum-link');
+        const datenschutzLink = document.getElementById('datenschutz-link');
+        const impressumModal = document.getElementById('impressum-modal');
+        const datenschutzModal = document.getElementById('datenschutz-modal');
+        const closeImpressumModal = document.getElementById('close-impressum-modal');
+        const closeDatenschutzModal = document.getElementById('close-datenschutz-modal');
+
+        function openModal(modal) { if (modal) modal.classList.remove('hidden'); }
+        function closeModal(modal) { if (modal) modal.classList.add('hidden'); }
+
+        if (impressumLink && impressumModal && closeImpressumModal) {
+            impressumLink.addEventListener('click', (e) => { e.preventDefault(); openModal(impressumModal); });
+            closeImpressumModal.addEventListener('click', () => closeModal(impressumModal));
+        }
+        if (datenschutzLink && datenschutzModal && closeDatenschutzModal) {
+            datenschutzLink.addEventListener('click', (e) => { e.preventDefault(); openModal(datenschutzModal); });
+            closeDatenschutzModal.addEventListener('click', () => closeModal(datenschutzModal));
+        }
+        window.addEventListener('click', (event) => {
+            if (event.target === impressumModal) closeModal(impressumModal);
+            if (event.target === datenschutzModal) closeModal(datenschutzModal);
+        });
+        window.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                if (impressumModal && !impressumModal.classList.contains('hidden')) closeModal(impressumModal);
+                if (datenschutzModal && !datenschutzModal.classList.contains('hidden')) closeModal(datenschutzModal);
+            }
         });
     </script>
 </body>
